@@ -1,5 +1,4 @@
 import java.time.Year;
-
 class Vehicle {
     String brand;
     String model;
