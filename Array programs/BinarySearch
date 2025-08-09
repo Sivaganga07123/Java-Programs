@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+class BinarySearch {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter elements ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] > arr[j]) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+
+        System.out.println("Sorted array:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+        System.out.print("Enter element to search: ");
+        int element = sc.nextInt();
+
+        int l = 0, r = n - 1, mid = -1;
+        boolean found = false;
+
+        while (l <= r) {
+            mid = l + (r - l) / 2;
+
+            if (arr[mid] == element) {
+                found = true;
+                break;
+            } else if (arr[mid] < element) {
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
+        }
+
+        if (found) {
+            System.out.println("Element found at index: " + mid);
+        } else {
+            System.out.println("Element not found.");
+        }
+    }
+}
