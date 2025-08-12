@@ -1,0 +1,6 @@
+package mypackage;
+public class Myclass {
+public void message(){
+System.out.println("hello World!");
+}
+}
